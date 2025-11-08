@@ -24,6 +24,21 @@ If using database queue:
 2. php artisan migrate
 3. Start worker: php artisan queue:work
 
+To enable email sending:
+
+Configure mail settings in your .env file:
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=yourgmail@gmail.com
+MAIL_PASSWORD=your_app_password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=yourgmail@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"
+Uncomment the mail dispatch line in
+app/Http/Controllers/Api/EmployeeController.php:
+
 ## API Endpoints
 - GET /api/departments — list departments
 - POST /api/departments — create department (X-ROLE: admin)
